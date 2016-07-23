@@ -90,23 +90,34 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText) {
     	case 'hi':
+	    	var messageData = {
+			    recipient: {
+			      id: senderID
+			    },
+			    message: {
+			      text: 'Hi! Welcome to Hope Cream. Would you like to know what flavors we have available?'
+			    }
+			  };
 
-    	var messageData = {
-		    recipient: {
-		      id: senderID
-		    },
-		    message: {
-		      text: 'Hi! Welcome to Hope Cream. Would you like to know what flavors we have available?'
-		    }
-		  };
+			callSendAPI(messageData);
+			break;
 
-  callSendAPI(messageData);
-  	break;
+		case 'yes':
+			var messageData = {
+				recipient: {
+					id: senderID
+				},
+				message: {
+					text: 'Hold the Cone, Fruit Frenzy, Skinny Cow. Look for one of our sales agents around campus to get your Hope Cream today!'
+				}
+			};
+
+		break;
+
+ 
       default:
         sendTextMessage(senderID, messageText);
     }
-  } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
   }
 }
 
@@ -116,7 +127,7 @@ function sendTextMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: messageText
+      text: 'I\'m just a bot. :) Do you want to know what flavors we have available?'
     }
   };
 
