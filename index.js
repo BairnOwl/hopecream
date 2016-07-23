@@ -117,6 +117,21 @@ function receivedMessage(event) {
 
 		break;
 
+		case 'sprint':
+
+			var messageData = {
+				recipient: {
+					id: senderID
+				},
+				message: {
+					text: 'Go, SVIA! Engineering team best team ;)'
+				}
+			};
+
+			callSendAPI(messageData);
+
+		break;
+
  
       default:
         sendTextMessage(senderID, messageText);
