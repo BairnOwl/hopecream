@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 // Index route
 app.get('/', function (req, res) {
 	console.log('at home page');
-    res.send('Hello world, I am a chat bot')
+    res.render('index.html')
 });
 
 // for Facebook verification
