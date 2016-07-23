@@ -96,7 +96,7 @@ function receivedMessage(event) {
 		      id: recipientId
 		    },
 		    message: {
-		      text: 'Hi! Welcome to Hope Cream. Would you like to know what flavors we have available?';
+		      text: 'Hi! Welcome to Hope Cream. Would you like to know what flavors we have available?'
 		    }
 		  };
 
