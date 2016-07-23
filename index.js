@@ -69,12 +69,12 @@ var token = "EAAWVXESZCZAYYBALrnQnUpfNhDOV0xBiaLG9g5Qd30CaoYqC2TsYTrfgzMXVgwe2ZA
 
 function receivedMessage(event) {
   var senderID = event.sender.id;
-  var recipientID = event.recipient.id;
+  //var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
   console.log("Received message for user %d and page %d at %d with message:", 
-    senderID, recipientID, timeOfMessage);
+    senderID, timeOfMessage);
   console.log(JSON.stringify(message));
 
   var messageId = message.mid;
@@ -93,7 +93,7 @@ function receivedMessage(event) {
 
     	var messageData = {
 		    recipient: {
-		      id: recipientId
+		      id: senderID
 		    },
 		    message: {
 		      text: 'Hi! Welcome to Hope Cream. Would you like to know what flavors we have available?'
