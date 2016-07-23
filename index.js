@@ -112,6 +112,9 @@ function receivedMessage(event) {
 				}
 			};
 
+			callSendAPI(messageData);
+			break;
+
 		break;
 
  
