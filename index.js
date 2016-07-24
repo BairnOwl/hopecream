@@ -45,28 +45,6 @@ app.post('/webhook/', function (req, res) {
 var token = "EAAWVXESZCZAYYBALrnQnUpfNhDOV0xBiaLG9g5Qd30CaoYqC2TsYTrfgzMXVgwe2ZAzn7Hu4yRV2Wn8SabwAqpuefKIE4ImSJyYc6DNDtZC7GFJmzYLPdP00oZBS1kYSxlEliLCoR4mrmdHjsG7jpdlxgX7kQozOhpZCErOHWsuQZDZD"
 
 
-// function sendTextMessage(sender, text) {
-//     messageData = {
-//         text:text
-//     }
-//     request({
-//         url: 'https://graph.facebook.com/v2.6/me/messages',
-//         qs: {access_token:token},
-//         method: 'POST',
-//         json: {
-//             recipient: {id:sender},
-//             message: messageData,
-//         }
-//     }, function(error, response, body) {
-//         if (error) {
-//             console.log('Error sending messages: ', error)
-//         } else if (response.body.error) {
-//             console.log('Error: ', response.body.error)
-//         }
-//     })
-// }
-
-
 function receivedMessage(event) {
   var senderID = event.sender.id;
   //var recipientID = event.recipient.id;
@@ -103,6 +81,21 @@ function receivedMessage(event) {
 			break;
 
 		case 'yes':
+			var messageData = {
+				recipient: {
+					id: senderID
+				},
+				message: {
+					text: 'Hold the Cone, Fruit Frenzy, Skinny Cow. Look for one of our sales agents around campus to get your Hope Cream today!'
+				}
+			};
+
+			callSendAPI(messageData);
+			break;
+
+		break;
+
+		case 'flavor':
 			var messageData = {
 				recipient: {
 					id: senderID
